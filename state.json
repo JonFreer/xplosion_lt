@@ -1,0 +1,8 @@
+{
+    "lowerThirds": [ 
+        {"name":"Jon","role":"Best Boy","active":"false"},
+        {"name":"Jimbo","role":"Best Boy","active":"false"},
+        {"name":"Jimmothy","role":"Best Boy","active":"false"}
+    ]
+
+}

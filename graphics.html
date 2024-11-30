@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      @font-face {
+        font-family: "HelveticaBold"; /*a name to be used later*/
+        src: url("http://home.julusian.co.uk:34543/font/Helvetica-Bold.otf"); /*URL to font*/
+      }
+      body {
+        margin: 0;
+        padding-bottom: 3rem;
+        /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif; */
+        font-family: "HelveticaBold";
+        background: red;
+      }
+
+      :root {
+        --box-padding-right: 100px;
+        --box-height: 120px;
+        --box-bottom: 200px;
+        --grey-height: 50px;
+        --top-pos:250px;
+      }
+
+
+ 
+
+      #blueBar {
+        position: absolute;
+        top: var(--top-pos);
+        left:0px;
+        width: calc(100vw - 2 * var(--box-padding-right));
+        height: var(--box-height);
+        background-color: #263f71;
+      }
+
+      #greyBar {
+        position: absolute;
+        background: #272727;
+        height: var(--grey-height);
+        left: 0px;
+        width: calc(100vw - 2 * var(--box-padding-right));
+
+        bottom: 0px;
+        font-size: calc(var(--grey-height) - 10px);
+      }
+
+      #name{
+        position: absolute;
+        top: 0px;
+        left:0px;
+        height: var(--box-height);
+        font-size: 100px;
+        color: white;
+        padding-left: 30px;
+      }
+
+      #role{
+        padding-left: 30px;
+        color:white;
+      }
+
+      #mask{
+        height:calc(var(--box-height) + var(--grey-height) + 2px);
+        bottom:var(--box-bottom);
+        left: var(--box-padding-right);
+        width: calc(100vw - 2 * var(--box-padding-right));
+        overflow: hidden;
+        position:absolute;
+      }
+
+      #blueBar.animate{
+        animation: topPosAnimation 4s forwards;
+        top:0px;
+      }
+
+      @keyframes topPosAnimation {
+          0% {top: 250px;}
+          20% {top: 250px;}
+          40% {top: 50px;}
+          80% {top: 50px;}
+          100% {top: 0px;}
+      }
+
+      #name.animate{
+        animation: nameAnimation 4s forwards;
+        top:0px;
+      }
+
+      @keyframes nameAnimation {
+          0% {top: 250px;}
+          20% {top: 50px;}
+          80% {top: 50px;}
+          100% {top: 0px;}
+      }
+
+      #greyBar.animate{
+        animation: greyAnimation 4s forwards;
+      }
+
+      @keyframes greyAnimation {
+          0% {bottom: -50px;}
+          80% {bottom: -50px;}
+          100% {bottom: 0px;}
+      }
+      
+      .animate_out{
+        animation: animateOut 2s forwards;
+      }
+
+      @keyframes animateOut {
+        0% {top: 0px;}
+        100% {top: 400px;}
+      }
+
+      #greyBar.animate_out{
+        animation: animateOutGrey 2s forwards;
+      }
+
+      @keyframes animateOutGrey {
+        0% {bottom: 0px;}
+        100% {bottom: -400px;}
+      }
+
+    </style>
+  </head>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>
+    var socket = io();
+    var state = {};
+
+    function play(id) {
+      console.log("play", id);
+      socket.emit("play", id);
+    }
+
+    function stop(id) {
+      console.log("stop", id);
+      socket.emit("stop", id);
+    }
+
+    socket.on("play", function (msg) {
+      state = msg;
+
+      document.getElementById("name").innerText = msg.name;
+      document.getElementById("role").innerText = msg.role;
+
+      document.getElementById("name").classList.remove("animate_out")
+      document.getElementById("blueBar").classList.remove("animate_out")
+      document.getElementById("greyBar").classList.remove("animate_out")
+
+      document.getElementById("name").classList.add("animate")
+      document.getElementById("blueBar").classList.add("animate")
+      document.getElementById("greyBar").classList.add("animate")
+
+    });
+
+    socket.on("stop", function (msg) {
+      state = msg;
+      
+      document.getElementById("name").classList.remove("animate")
+      document.getElementById("blueBar").classList.remove("animate")
+      document.getElementById("greyBar").classList.remove("animate")
+
+      document.getElementById("name").classList.add("animate_out")
+      document.getElementById("blueBar").classList.add("animate_out")
+      document.getElementById("greyBar").classList.add("animate_out")
+
+    });
+  </script>
+  <body>
+    <div id="mask" >
+      <div id="blueBar" class="animate_out"></div>
+      <div id="name" class="animate_out">Jon Freer</div>
+      <div id="greyBar" class="animate_out">
+        <div id="role">Best Boy</div>
+      </div>
+    </div>
+  </body>
+</html>
