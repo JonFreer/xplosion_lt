@@ -1,8 +1,14 @@
 {
     "lowerThirds": [ 
-        {"name":"Jon","role":"Best Boy","active":"false"},
-        {"name":"Jimbo","role":"Best Boy","active":"false"},
-        {"name":"Jimmothy","role":"Best Boy","active":"false"}
+        {"name":"Asha Rajoriya","role":"Presenter","active":"false"},
+        {"name":"Lisandr & Thomas","role":"Commentators","active":"false"},
+        {"name":"Justin Lester","role":"Lion's Head Coach","active":"false"},
+        {"name":"Coach Cliff","role":"Destroyer's Head Coach","active":"false"},
+        {"name":"Harrison Cooper","role":"President","active":"false"},
+        {"name":"Denzil White","role":"Vice President","active":"false"},
+        {"name":"Samuel Williamson","role":"President","active":"false"},
+        {"name":"Bhavya Gandhi","role":"Recruitment Secretary","active":"false"},
+        {"name":"Daniel Wickes","role":"Defensive Back","active":"false"}
     ]
 
 }

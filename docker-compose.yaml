@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        REACT_APP_HOST: ${DOMAIN:-xplosion}
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.xplosion.loadbalancer.server.port=3000"
+      - "traefik.http.routers.xplosion.tls.certresolver=letsEncrypt"
+      - "traefik.http.routers.xplosion.rule=Host(`${DOMAIN:-xplosion.localhost}`)"
+      - "traefik.http.routers.xplosion.tls=true"
+    networks:
+      - traefik_web
+    volumes:
+      - ./index.js:/app/index.js
+      - ./index.html:/app/index.html
+      - ./graphics.html:/app/graphics.html
+      - ./state.json:/app/state.json
+
+
+networks:
+  traefik_web:
+    external:
+      true

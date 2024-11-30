@@ -5,7 +5,7 @@
     <style>
       @font-face {
         font-family: "HelveticaBold"; /*a name to be used later*/
-        src: url("http://home.julusian.co.uk:34543/font/Helvetica-Bold.otf"); /*URL to font*/
+        src: url("/font"); /*URL to font*/
       }
       body {
         margin: 0;
@@ -13,7 +13,6 @@
         /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Helvetica, Arial, sans-serif; */
         font-family: "HelveticaBold";
-        background: red;
       }
 
       :root {
@@ -43,13 +42,13 @@
         left: 0px;
         width: calc(100vw - 2 * var(--box-padding-right));
 
-        bottom: 0px;
+        bottom: -250px;
         font-size: calc(var(--grey-height) - 10px);
       }
 
       #name{
         position: absolute;
-        top: 0px;
+        top: -250px;
         left:0px;
         height: var(--box-height);
         font-size: 100px;
@@ -72,21 +71,19 @@
       }
 
       #blueBar.animate{
-        animation: topPosAnimation 4s forwards;
-        top:0px;
+        animation: topPosAnimation 3s forwards;
       }
 
       @keyframes topPosAnimation {
           0% {top: 250px;}
           20% {top: 250px;}
-          40% {top: 50px;}
+          60% {top: 50px;}
           80% {top: 50px;}
           100% {top: 0px;}
       }
 
       #name.animate{
-        animation: nameAnimation 4s forwards;
-        top:0px;
+        animation: nameAnimation 3s forwards;
       }
 
       @keyframes nameAnimation {
@@ -97,7 +94,7 @@
       }
 
       #greyBar.animate{
-        animation: greyAnimation 4s forwards;
+        animation: greyAnimation 3s forwards;
       }
 
       @keyframes greyAnimation {
@@ -173,9 +170,9 @@
   </script>
   <body>
     <div id="mask" >
-      <div id="blueBar" class="animate_out"></div>
-      <div id="name" class="animate_out">Jon Freer</div>
-      <div id="greyBar" class="animate_out">
+      <div id="blueBar" class=""></div>
+      <div id="name" class="">Jon Freer</div>
+      <div id="greyBar" class="">
         <div id="role">Best Boy</div>
       </div>
     </div>

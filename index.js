@@ -16,6 +16,10 @@ app.get("/lt", (req, res) => {
   res.sendFile(__dirname + "/graphics.html");
 });
 
+app.get("/font", (req, res) => {
+  res.sendFile(__dirname + "/Helvetica-Bold.otf");
+});
+
 io.on("connection", (socket) => {
   io.emit("state", state);
 
