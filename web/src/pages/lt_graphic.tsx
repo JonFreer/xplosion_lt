@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import style from "../css/lowerThird.module.css"
-import { Socket } from "socket.io-client";
 import { socket } from "../socket";
 import { LowerThirdItem } from "./control";
 

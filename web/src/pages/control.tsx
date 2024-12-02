@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { socket } from "../socket";
 import { Socket } from "socket.io-client";
-import { DefaultEventsMap } from "socket.io";
 
 export interface LowerThirdItem {
   name: string;
@@ -15,7 +14,6 @@ interface StateType {
 }
 
 export default function Control() {
-  const [isConnected, setIsConnected] = useState(socket.connected);
   const [isEditMode, setIsEditMode] = useState(false);
   const [state, setState] = useState<StateType>({
     lowerThirds: {},
@@ -23,27 +21,15 @@ export default function Control() {
   });
 
   useEffect(() => {
-    function onConnect() {
-      setIsConnected(true);
-      console.log("connected");
-    }
-
-    function onDisconnect() {
-      setIsConnected(false);
-    }
 
     function onState(msg: any) {
       console.log("onState", msg);
       setState(msg);
     }
 
-    socket.on("connect", onConnect);
-    socket.on("disconnect", onDisconnect);
     socket.on("state", onState);
 
     return () => {
-      socket.off("connect", onConnect);
-      socket.off("disconnect", onDisconnect);
       socket.off("state", onState);
     };
   }, []);
@@ -60,7 +46,7 @@ export default function Control() {
     <div className="flex flex-col bg-slate-200">
 
     
-      {Object.entries(state.lowerThirds).map(([id, v]: [string, LowerThirdItem], idx: number) => 
+      {Object.entries(state.lowerThirds).map(([id, v]: [string, LowerThirdItem], _idx: number) => 
         !isEditMode?(<Row state={v} socket={socket} active={state.active} id={id}></Row>):
                 (<RowEdit state={v} socket={socket} id={id}></RowEdit>)
       )}
@@ -79,7 +65,7 @@ function Row({
 }: {
   state: LowerThirdItem;
   active: string | null;
-  socket: Socket<DefaultEventsMap, DefaultEventsMap>;
+  socket: Socket;
   id: string;
 }) {
   return (
@@ -117,7 +103,7 @@ function RowEdit({
     id
   }: {
     state: LowerThirdItem;
-    socket: Socket<DefaultEventsMap, DefaultEventsMap>;
+    socket: Socket;
     id: string;
   }) {
 
@@ -142,7 +128,7 @@ function RowEdit({
 
     socket,
   }: {
-    socket: Socket<DefaultEventsMap, DefaultEventsMap>;
+    socket: Socket;
   }) {
 
     const inputNameRef = useRef<HTMLInputElement | null>(null);
