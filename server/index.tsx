@@ -1,24 +1,21 @@
+const { v4: uuidv4 } = require('uuid');
+
 const express = require("express");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
-
 const state = require("./state.json");
+
+const io = new Server({
+  cors: {
+    origin: "http://localhost:5173"
+  }
+});
+
+io.listen(4000);
+
 state.active = null;
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
-
-app.get("/lt", (req, res) => {
-  res.sendFile(__dirname + "/graphics.html");
-});
-
-app.get("/font", (req, res) => {
-  res.sendFile(__dirname + "/Helvetica-Bold.otf");
-});
 
 io.on("connection", (socket) => {
   io.emit("state", state);
@@ -51,8 +48,27 @@ io.on("connection", (socket) => {
       io.emit("play", state.lowerThirds[id]);
     }
   });
+
+  socket.on("lt_update", (msg)=>{
+    console.log("lt_update", msg)
+    state.lowerThirds[msg.id][msg.key] = msg.value;
+    io.emit("state", state);
+  })
+
+  socket.on("lt_create", (msg)=>{
+    console.log("lt_create", msg)
+    state.lowerThirds[uuidv4()] = {name:msg.name,role:msg.role,active:"false",id:uuidv4()}
+    io.emit("state", state);
+  })
+
+  socket.on("lt_remove", (id)=>{
+    console.log("lt_remove", id)
+    if(state.active == id){
+      state.active = null;
+      io.emit("stop", state.lowerThirds[id]);
+    }
+    delete state.lowerThirds[id]
+    io.emit("state", state);
+  });
 });
 
-server.listen(3000, () => {
-  console.log("listening on *:3000");
-});
