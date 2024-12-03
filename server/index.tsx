@@ -8,7 +8,7 @@ const state = require("./state.json");
 
 const io = new Server({
   cors: {
-    origin: "http://localhost:5173"
+    origin: "http://localhost"
   }
 });
 
