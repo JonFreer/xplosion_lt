@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "../css/lowerThird.module.css"
 import { socket } from "../socket";
-import { LowerThirdItem } from "./control";
+import { LowerThirdItem } from "./lt_control";
 
 export default function LowerThirdGraphic() {
   

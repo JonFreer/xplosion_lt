@@ -38,6 +38,7 @@ export default function Control() {
     <>
     
     <div  className="flex bg-slate-200">
+      <h1 className=" p-2 m-3 font-bold text-xl">Lower Thirds Controller</h1>
         {isEditMode? 
         <div className="ml-auto p-2 m-3 font-bold bg-blue-400 rounded-lg text-white select-none cursor-pointer" onClick={()=>setIsEditMode(false)}>Done</div>:
         <div className="ml-auto p-2 m-3 font-bold bg-blue-400 rounded-lg text-white select-none cursor-pointer" onClick={()=>setIsEditMode(true)}>Edit</div>}

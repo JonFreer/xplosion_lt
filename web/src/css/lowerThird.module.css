@@ -1,11 +1,3 @@
-@font-face {
-    font-family: "HelveticaBold"; /*a name to be used later*/
-    src: url("/Helvetica-Bold.otf"); /*URL to font*/
-  }
-  body {
-
-  }
-
   :root {
     --box-padding-right: 100px;
     --box-height: 120px;
@@ -53,9 +45,7 @@
   }
 
   #mask{
-
     font-family: "HelveticaBold";
-
     height:calc(var(--box-height) + var(--grey-height) + 2px);
     bottom:var(--box-bottom);
     left: var(--box-padding-right);
