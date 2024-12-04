@@ -21,12 +21,12 @@ export default function LowerThirdGraphic() {
         setActive(false)
       }
 
-    socket.on("play", onPlay);
-    socket.on("stop", onStop);
+    socket.on("lt_play", onPlay);
+    socket.on("lt_stop", onStop);
 
     return () => {
-      socket.off("play", onPlay);
-      socket.off("stop",onStop);
+      socket.off("lt_play", onPlay);
+      socket.off("lt_stop",onStop);
     };
 
   }, []);

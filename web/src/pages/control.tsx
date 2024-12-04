@@ -27,10 +27,10 @@ export default function Control() {
       setState(msg);
     }
 
-    socket.on("state", onState);
+    socket.on("lt_state", onState);
 
     return () => {
-      socket.off("state", onState);
+      socket.off("lt_state", onState);
     };
   }, []);
 
@@ -77,7 +77,7 @@ function Row({
           active == null ? "bg-green-600" : "bg-slate-300"
         }`}
         onClick={() => {
-          socket.emit("play", id);
+          socket.emit("lt_play", id);
         }}
       >
         Play
@@ -87,7 +87,7 @@ function Row({
           active == id ? "bg-red-600" : "bg-slate-300"
         }`}
         onClick={() => {
-          socket.emit("stop", id);
+          socket.emit("lt_stop", id);
         }}
       >
         Stop

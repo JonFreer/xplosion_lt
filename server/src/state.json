@@ -1,10 +1,11 @@
 {
   "lowerThirds": {
-    "0": { "name": "Asha Rajoriya", "role": "Presenter", "active": "false" },
+    "0": { "name": "Asha", "role": "Presenter", "active": "false" },
     "1": {
       "name": "Lisandr & Thomas",
       "role": "Commentators",
       "active": "false"
     }
-  }
+  },
+  "active": null
 }
