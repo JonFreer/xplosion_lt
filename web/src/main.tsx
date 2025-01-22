@@ -7,6 +7,8 @@ import LowerThirdGraphic from './pages/lt_graphic.tsx';
 import GraphControl from './pages/graph_control.tsx';
 import GraphGraphic from './pages/graph_graphic.tsx';
 import Landing from './pages/landing.tsx';
+import ScoreGraphic from './pages/score_graphic.tsx';
+import ScoreControl from './pages/score_control.tsx';
 
 const router = createBrowserRouter([
 
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/graph",
     element: <GraphGraphic/>,
+  },  
+  {
+    path: "/score",
+    element: <ScoreGraphic/>,
+  },
+  {
+    path: "/score_control",
+    element: <ScoreControl/>,
   },
   {
     path: "*",
