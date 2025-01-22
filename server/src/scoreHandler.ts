@@ -7,14 +7,18 @@ interface Score {
     score_a: number;
     score_b: number;
     active: boolean;
+    quater: string;
+    start_time: number;
 }
 
 let state:Score = {
     team_a: "Team A",
     team_b: "Team B",
+    quater: "Q1",
     score_a: 0,
     score_b: 0,
-    active: false
+    active: false,
+    start_time: 0
 }
 
 export default function init(){
@@ -32,7 +36,6 @@ export function addConnection(socket: Socket, io: Server) {
     socket.on("score_update", (_state:Score)  => {
         state = _state;
         io.emit("score_state", state);
-
     });
 
     socket.on("score_stop", (id: string) => {
