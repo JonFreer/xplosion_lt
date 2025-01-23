@@ -9,6 +9,8 @@ import GraphGraphic from './pages/graph_graphic.tsx';
 import Landing from './pages/landing.tsx';
 import ScoreGraphic from './pages/score_graphic.tsx';
 import ScoreControl from './pages/score_control.tsx';
+import LowerThirdGraphicNetball from './pages/lt_graphic_netball.tsx';
+import GraphGraphicNetball from './pages/graph_graphic_netball.tsx';
 
 const router = createBrowserRouter([
 
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
     element: <LowerThirdGraphic/>,
   },
   {
+    path: "/lt_netball",
+    element: <LowerThirdGraphicNetball/>,
+  },
+  {
     path: "/graph_control",
     element: <GraphControl/>,
   },
@@ -28,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/graph",
     element: <GraphGraphic/>,
+  },  
+  {
+    path: "/graph_netball",
+    element: <GraphGraphicNetball/>,
   },  
   {
     path: "/score",

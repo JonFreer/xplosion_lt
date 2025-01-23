@@ -1,0 +1,119 @@
+  :root {
+    --box-padding-right: 500px;
+    --box-height: 60px;
+    --box-bottom: 100px;
+    --grey-height: 45px;
+    --top-pos:250px;
+  }
+
+  #blueBar {
+    position: absolute;
+    top: var(--top-pos);
+    left:0px;
+    width: calc(100vw - 2 * var(--box-padding-right));
+    height: var(--box-height);
+    background-color: #62264d;
+    
+  }
+
+  #greyBar {
+    position: absolute;
+    background: linear-gradient(to bottom, white, #f0f0f0);
+    height: var(--grey-height);
+    left: 0px;
+    width: calc(100vw - 2 * var(--box-padding-right));
+    
+    bottom: -250px;
+    font-size: calc(var(--grey-height) - 10px);
+  }
+
+  #name{
+    position: absolute;
+    top: -250px;
+    left:0px;
+    height: var(--box-height);
+    font-size: 45px;
+    color: white;
+    line-height: normal;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+    margin: auto;
+    width: calc(100vw - 2 * var(--box-padding-right));
+    line-height: var(--box-height);
+    
+    padding-top: 2px;
+  }
+
+  #role{
+    /* padding-left: 30px; */
+    /* color:white; */
+    text-transform: uppercase;
+    width: calc(100vw - 2 * var(--box-padding-right));
+    text-align: center;
+    font-size:35px;
+    /* line-height: normal; */
+
+  }
+
+  #mask{
+    font-family: "Helvetica";
+    height:calc(var(--box-height) + var(--grey-height) + 2px);
+    bottom:var(--box-bottom);
+    left: var(--box-padding-right);
+    width: calc(100vw - 2 * var(--box-padding-right));
+    overflow: hidden;
+    position:absolute;
+  }
+
+  #blueBar.animate{
+    animation: topPosAnimation 2s forwards;
+  }
+
+  @keyframes topPosAnimation {
+      0% {top: 250px;}
+      20% {top: 250px;}
+      60% {top: 50px;}
+      80% {top: 50px;}
+      100% {top: 0px;}
+  }
+
+  #name.animate{
+    animation: nameAnimation 2s forwards;
+  }
+
+  @keyframes nameAnimation {
+      0% {top: 250px;}
+      20% {top: 50px;}
+      80% {top: 50px;}
+      100% {top: 0px;}
+  }
+
+  #greyBar.animate{
+    animation: greyAnimation 2s forwards;
+  }
+
+  @keyframes greyAnimation {
+      0% {bottom: -50px;}
+      80% {bottom: -50px;}
+      100% {bottom: 0px;}
+  }
+  
+  .animate_out{
+    animation: animateOut 2s forwards;
+  }
+
+  @keyframes animateOut {
+    0% {top: 0px;}
+    100% {top: 400px;}
+  }
+
+  #greyBar.animate_out{
+    animation: animateOutGrey 2s forwards;
+  }
+
+  @keyframes animateOutGrey {
+    0% {bottom: 0px;}
+    100% {bottom: -400px;}
+  }

@@ -1,0 +1,161 @@
+.outline{
+  position: absolute;
+  top: 0;
+  left: 192px;
+  width: 1536px;
+  height: 100vh;
+  opacity: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-family: "Helvetica";
+}
+
+.wrapper{
+    width: 100%;
+}
+
+#line1{
+  position: relative;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100px;
+  overflow: hidden;
+}
+
+.bg{
+    /* background: linear-gradient(#354863,#0f1a29); */
+    /* background: #62264d; */
+    background: linear-gradient(to bottom, white, #e2e2e2);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top:250px;
+}
+
+.bg_animate{
+    animation: bgAnimation 2s forwards;
+}
+
+@keyframes bgAnimation {
+    0% {top: 250px;}
+    20% {top: 250px;}
+    60% {top: 0px;}
+    80% {top: 0px;}
+    100% {top: 0px;}
+}
+
+.title{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: #767676;
+  font-size: 100px;
+  /* line-height: 1; */
+  margin-left: 30px;
+  margin-top: 5px;
+  top:250px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size:70px;
+  font-weight: 600;
+}
+
+.name_animate{
+    animation: nameAnimation 3s forwards;
+}
+
+.name_animate_out{
+    animation: nameAnimationOut 1s forwards;
+}
+
+.mask{
+    position: absolute;
+    width:100%;
+    height:200%;
+    top: 250px;
+    background: white;
+}
+
+.mask_animate{
+    animation: maskAnimation 2s;
+}
+
+@keyframes maskAnimation {
+    0% {top: 250px;}
+    100% {top: -250px;}
+}
+
+@keyframes nameAnimation {
+    0% {top: 250px;}
+    20% {top: 0px;}
+    80% {top: 0px;}
+    100% {top: 0px;}
+}
+
+@keyframes nameAnimationOut {
+    0% {top: 0px;}
+    100% {top: 250px;}
+}
+
+.line2{
+  font-size: 30px;
+  line-height: 1;
+  color: #f5f5f5;
+  bottom: 15px;
+  font-size: 40px;
+  line-height: 1;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  /* padding: 5px; */
+  padding-left: 30px;
+  /* background: linear-gradient(#272727,#0e0e0e); */
+  background: #62264d;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  /* font-weight: 600; */
+  position: relative;
+  left: 0;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  height: 0px;
+  transition: height 0.12s;
+}
+
+.height_animation{
+    height:56px;
+}
+
+.height_animation_row{
+    height: 61px;
+}
+
+/* .height_animation_out{
+    animation: height_animation_out 0.5s forwards;
+} */
+
+/* @keyframes height_animation {
+    0% {height: 0px;}
+    80% {height: 0px;}
+    100% {height: 56px;}
+} */
+
+/* @keyframes height_animation_out {
+    0% {height: 56px;}
+    100% {height: 0px;}
+} */
+
+.row{
+  position: relative;
+  overflow: hidden;
+  font-size: 32px;
+  transition-timing-function: ease-out;
+}
+
+.dropshadow{
+    box-shadow: 7px 0 15px -3px #aaa,-7px 0 15px -4px #aaa;
+}
+
