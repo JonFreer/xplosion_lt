@@ -59,6 +59,7 @@ export default function ScoreGraphic() {
   return (
     <div id={style.mask}>
       <div id={style.scorebar}>
+        <div className={style.teamColor}></div>
         <div className={style.teamName}>{state.team_a}</div>
         <div className={style.score}>{state.score_a}</div>
         <div className={style.time}>
@@ -67,6 +68,7 @@ export default function ScoreGraphic() {
         <div className={style.quater}>{state.quater}</div>
         <div className={style.score}>{state.score_b}</div>
         <div className={style.teamName}>{state.team_b}</div>
+        <div className={style.teamColor}></div>
       </div>
     </div>
   );
