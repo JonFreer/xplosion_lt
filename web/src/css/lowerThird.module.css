@@ -22,18 +22,21 @@
   left: 0px;
   width: calc(100vw - 2 * var(--box-padding-right));
   height: var(--box-height);
-  background-color: #263f71;
+  /* background-color: #263f71; */
+  background: linear-gradient(#354863, #0f1a29);
 }
 
 #greyBar {
   position: absolute;
   background: #272727;
+  background: linear-gradient(#272727, #0e0e0e);
   height: var(--grey-height);
   left: 0px;
   width: calc(100vw - 2 * var(--box-padding-right));
 
   bottom: -250px;
   font-size: calc(var(--grey-height) - 10px);
+  padding-top: 1px;
 }
 
 #name {
