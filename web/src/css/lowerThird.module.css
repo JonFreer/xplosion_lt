@@ -44,13 +44,13 @@
   font-size: 60px;
   color: white;
   padding-left: 30px;
-  line-height: normal;
   text-align: center;
   width: 100%;
 }
 
 #role {
   padding-left: 30px;
+  font-size: 35px;
   color: white;
   line-height: normal;
   text-align: center;
